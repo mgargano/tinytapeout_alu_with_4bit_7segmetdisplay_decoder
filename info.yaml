@@ -6,33 +6,33 @@
 #
 # This will be automatically collected and used to make a datasheet for the chip.
 project: 
-  author:       ""      # Your name
-  title:        ""      # Project title
-  description:  ""      # Short description of what your project does
-  how_it_works: ""      # Longer description of how the project works
-  how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  external_hw:  ""      # Describe any external hardware needed
+  author:       "Michael Gargano"      # Your name
+  title:        "4-bit ALU with 7 segment display decoder hexadecimal output"      # Project title
+  description:  "a 4-bit ALU with 8 different possible operations on an internal accumulator whose current 4-bit state is displayed in hexadecimal on the segmented display"      # Short description of what your project does
+  how_it_works: "3-bit decoder picks operation pass-through, bit-wise (NOT, AND, OR, XOR), two's complement, add, or subtract circuit based on selection and stores the result in a 4-bit accumulator, after the pressing the step button, the 4-bit to 7-segment display decoder circuits then take that value and display it hexadecimal"      # Longer description of how the project works
+  how_to_test:  "select one of the 8 alu operations [switches 4-2] (pass-through 0, bit-wise NOT 1, bit-wise AND 2, bit-wise OR 3, bit-wise XOR 4, add 5, two's compliment 6, subtract 7) then input a 4-bit number [switches 8-5], press step button to perform the selected computation and the display will indicate current 4-bit accumulator value in hex, dot indicates if a carry is output during addition or subtraction"      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  external_hw:  "None"      # Describe any external hardware needed
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     0       # Clock frequency in Hz (if required)
   language:     "wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  wokwi_id:     0       # the wokwi ID
+  wokwi_id:     341538994733974098       # the wokwi ID
   picture:      ""      # relative path to a picture in your repository
   inputs:               # a description of what the inputs do
-    - clock
-    - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - clock (or single step with step button)
+    - alu operation selection bit 2
+    - alu operation selection bit 1
+    - alu operation selection bit 0
+    - input bit 3
+    - input bit 2
+    - input bit 1
+    - input bit 0
   outputs:
-    - segment a         # a description of what the outputs do
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - none
+    - segment a of hex output        # a description of what the outputs do
+    - segment b of hex output
+    - segment c of hex output
+    - segment d of hex output
+    - segment e of hex output
+    - segment f of hex output
+    - segment g of hex output
+    - dot (indicates carry)
 
